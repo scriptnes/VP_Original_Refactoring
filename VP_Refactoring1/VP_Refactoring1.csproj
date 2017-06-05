@@ -52,7 +52,7 @@
     <Compile Include="Car.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="Exec.cs" />
-    <Compile Include="IComando.cs" />
+    <Compile Include="ICommandManager.cs" />
     <Compile Include="IMechanism.cs" />
     <Compile Include="InsertAllType.cs" />
     <Compile Include="IVehicle.cs" />
