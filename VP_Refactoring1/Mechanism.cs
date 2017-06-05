@@ -2,16 +2,16 @@ using System;
 
 namespace VP_Refactoring1
 {
-	class Mecanismo : IMecanismo
+	class Mechanism : IMechanism
 	{
 		private Exec ex;
 
-		private Mecanismo(Exec ex)
+		private Mechanism(Exec ex)
 		{
 			this.ex = ex;
 		}
 
-		public Mecanismo() : this(new Exec())
+		public Mechanism() : this(new Exec())
 		{
 		}
 

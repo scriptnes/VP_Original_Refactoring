@@ -47,13 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Caminhao.cs" />
+    <Compile Include="Truck.cs" />
     <Compile Include="CarConfig.cs" />
-    <Compile Include="Carro.cs" />
+    <Compile Include="Car.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="Exec.cs" />
     <Compile Include="IComando.cs" />
-    <Compile Include="IMecanismo.cs" />
+    <Compile Include="IMechanism.cs" />
     <Compile Include="InsertAllType.cs" />
     <Compile Include="IVehicle.cs" />
     <Compile Include="IVehiclePark.cs" />
@@ -64,8 +64,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="ResultExec.cs" />
     <Compile Include="TruckConfig.cs" />
-    <Compile Include="VehicleParkSystem2.cs" />
-    <Compile Include="VpSystem.cs" />
+    <Compile Include="Mechanism.cs" />
+    <Compile Include="VehicleSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

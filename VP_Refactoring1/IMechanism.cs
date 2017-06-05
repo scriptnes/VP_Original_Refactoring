@@ -1,6 +1,6 @@
 namespace VP_Refactoring1
 {
-    public interface IMecanismo 
+    public interface IMechanism
     {
         void Run();
     }

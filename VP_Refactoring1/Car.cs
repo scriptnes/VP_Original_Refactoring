@@ -6,21 +6,21 @@ namespace VP_Refactoring1
 {
 	public class Car : IVehicle
 	{
-		private string licenseplate;
+		private string _licensePlateCar;
 
-		private string person;
+		private string _personCar;
 
-		private decimal regularrate;
+		private decimal _regularCar;
 
-		private decimal morerate;
+		private decimal _rate;
 
-		private int hh;
+		private int _hours;
 
 		public string LicensePlate
 		{
 			get
 			{
-				return this.licenseplate;
+				return this._licensePlateCar;
 			}
 			set
 			{
@@ -29,7 +29,7 @@ namespace VP_Refactoring1
 				{
 					throw new ArgumentException("The license plate number is invalid.");
 				}
-				this.licenseplate = value;
+				this._licensePlateCar = value;
 			}
 		}
 
@@ -37,16 +37,16 @@ namespace VP_Refactoring1
 		{
 			get
 			{
-				return this.person;
+				return this._personCar;
 			}
 			set
 			{
-				bool flag = value == null && value == "";
+				bool flag = string.IsNullOrEmpty(value);
 				if (flag)
 				{
 					throw new InvalidCastException("The owner is required.");
 				}
-				this.person = value;
+				this._personCar = value;
 			}
 		}
 
@@ -54,7 +54,7 @@ namespace VP_Refactoring1
 		{
 			get
 			{
-				return this.regularrate;
+				return this._regularCar;
 			}
 			set
 			{
@@ -63,7 +63,7 @@ namespace VP_Refactoring1
 				{
 					throw new InvalidTimeZoneException(string.Format("The regular rate must be non-negative.", new object[0]));
 				}
-				this.regularrate = value;
+				this._regularCar = value;
 			}
 		}
 
@@ -71,7 +71,7 @@ namespace VP_Refactoring1
 		{
 			get
 			{
-				return this.morerate;
+				return this._rate;
 			}
 			set
 			{
@@ -80,7 +80,7 @@ namespace VP_Refactoring1
 				{
 					throw new IndexOutOfRangeException(string.Format("The overtime rate must be non-negative.", new object[0]));
 				}
-				this.morerate = value;
+				this._rate = value;
 			}
 		}
 
@@ -88,7 +88,7 @@ namespace VP_Refactoring1
 		{
 			get
 			{
-				return this.hh;
+				return this._hours;
 			}
 			set
 			{
@@ -97,7 +97,7 @@ namespace VP_Refactoring1
 				{
 					throw new ArgumentException("The reserved hours must be positive.");
 				}
-				this.hh = value;
+				this._hours = value;
 			}
 		}
 
@@ -108,7 +108,7 @@ namespace VP_Refactoring1
 			return vehicle.ToString();
 		}
 
-		public Car(string _license_plate, string _person, int hh)
+		public Car(string licensePlate, string person, int hours)
 		{
 			this.RegularRate = 2m;
 			this.OvertimeRate = 3.5m;

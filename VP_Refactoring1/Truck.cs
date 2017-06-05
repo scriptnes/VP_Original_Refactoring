@@ -1,27 +1,26 @@
 using System;
 using System.Text;
 using System.Text.RegularExpressions;
-using VP_Refactoring1;
 
-namespace VehiclePark3
+namespace VP_Refactoring1
 {
 	public class Truck : IVehicle
 	{
-		private string licenseplate;
+		private string _licensePlateTruck;
 
-		private string person;
+		private string _personTruck;
 
-		private decimal regularrate;
+		private decimal _regularTruck;
 
-		private decimal morerate;
+		private decimal _rate;
 
-		private int hh;
+		private int _hours;
 
 		public string LicensePlate
 		{
 			get
 			{
-				return this.licenseplate;
+				return this._licensePlateTruck;
 			}
 			set
 			{
@@ -30,7 +29,7 @@ namespace VehiclePark3
 				{
 					throw new ArgumentException("The license plate number is invalid.");
 				}
-				this.licenseplate = value;
+				this._licensePlateTruck = value;
 			}
 		}
 
@@ -38,7 +37,7 @@ namespace VehiclePark3
 		{
 			get
 			{
-				return this.person;
+				return this._personTruck;
 			}
 			set
 			{
@@ -47,7 +46,7 @@ namespace VehiclePark3
 				{
 					throw new InvalidCastException("The owner is required.");
 				}
-				this.person = value;
+				this._personTruck = value;
 			}
 		}
 
@@ -55,7 +54,7 @@ namespace VehiclePark3
 		{
 			get
 			{
-				return this.regularrate;
+				return this._regularTruck;
 			}
 			set
 			{
@@ -64,7 +63,7 @@ namespace VehiclePark3
 				{
 					throw new InvalidTimeZoneException(string.Format("The regular rate must be non-negative.", new object[0]));
 				}
-				this.regularrate = value;
+				this._regularTruck = value;
 			}
 		}
 
@@ -72,7 +71,7 @@ namespace VehiclePark3
 		{
 			get
 			{
-				return this.morerate;
+				return this._rate;
 			}
 			set
 			{
@@ -81,7 +80,7 @@ namespace VehiclePark3
 				{
 					throw new IndexOutOfRangeException(string.Format("The overtime rate must be non-negative.", new object[0]));
 				}
-				this.morerate = value;
+				this._rate = value;
 			}
 		}
 
@@ -89,7 +88,7 @@ namespace VehiclePark3
 		{
 			get
 			{
-				return this.hh;
+				return this._hours;
 			}
 			set
 			{
@@ -98,7 +97,7 @@ namespace VehiclePark3
 				{
 					throw new ArgumentException("The reserved hours must be positive.");
 				}
-				this.hh = value;
+				this._hours = value;
 			}
 		}
 

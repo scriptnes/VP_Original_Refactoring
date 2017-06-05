@@ -1,6 +1,5 @@
 using System;
 using System.Globalization;
-using VehiclePark3;
 
 namespace VP_Refactoring1
 {
@@ -22,7 +21,11 @@ namespace VP_Refactoring1
             }
             else
             {
-                result = _exec.VehiclePark.InsertTruck(new Truck(commandManager.ParametersDictionary["licensePlate"], commandManager.ParametersDictionary["owner"], int.Parse(commandManager.ParametersDictionary["hours"])), int.Parse(commandManager.ParametersDictionary["sector"]), int.Parse(commandManager.ParametersDictionary["place"]), DateTime.Parse(commandManager.ParametersDictionary["time"], null, DateTimeStyles.RoundtripKind));
+                result = _exec.VehiclePark.InsertTruck(new Truck(commandManager.ParametersDictionary["licensePlate"], commandManager.ParametersDictionary["owner"],
+                    int.Parse(commandManager.ParametersDictionary["hours"])),
+                    int.Parse(commandManager.ParametersDictionary["sector"]),
+                    int.Parse(commandManager.ParametersDictionary["place"]),
+                    DateTime.Parse(commandManager.ParametersDictionary["time"], null, DateTimeStyles.RoundtripKind));
             }
 
             return result;

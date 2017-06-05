@@ -5,7 +5,7 @@ namespace VP_Refactoring1
 		private static void Main()
 		{
 			
-			Mecanismo engine = new Mecanismo();
+			Mechanism engine = new Mechanism();
 			engine.Run();
 		}
 	}

@@ -108,7 +108,7 @@ namespace VP_Refactoring1
 			return vehicle.ToString();
 		}
 
-        public Moto(string _license_plate, string _person, int hh)
+        public Moto(string licensePlate, string person, int hours)
         {
             this.RegularRate = 1.35m;
             this.OvertimeRate = 3m;
