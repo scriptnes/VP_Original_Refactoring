@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="VP_Refactoring1.Car" BaseTypeListCollapsed="true">
-    <Position X="1.5" Y="0.5" Width="1.5" />
+    <Position X="19.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAECAIAAAAAAEAAAAAAAEAAAAAAACRAAAAQAACAA=</HashCode>
       <FileName>Car.cs</FileName>
@@ -9,21 +9,21 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="VP_Refactoring1.CarConfig">
-    <Position X="3.25" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABQAAAAAAAAAAAAAAAEAABAAAAAAAAg=</HashCode>
       <FileName>CarConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VP_Refactoring1.DataStructure">
-    <Position X="5" Y="0.5" Width="1.5" />
+    <Position X="16.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAIAAAAAAAAAgAAAAAEIAAAAAABA=</HashCode>
       <FileName>Data.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VP_Refactoring1.Exec">
-    <Position X="6.75" Y="0.5" Width="1.5" />
+    <Position X="4" Y="0.5" Width="1.5" />
     <NestedTypes>
       <Class Name="VP_Refactoring1.Exec.CommandManager" Collapsed="true">
         <TypeIdentifier>
@@ -38,29 +38,29 @@
     </TypeIdentifier>
   </Class>
   <Class Name="VP_Refactoring1.InsertAllType">
-    <Position X="1.5" Y="4.5" Width="1.5" />
+    <Position X="18" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAgAgAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>InsertAllType.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VP_Refactoring1.Layout">
-    <Position X="3.25" Y="4.5" Width="1.5" />
+    <Position X="14.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Layout.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VP_Refactoring1.Mechanism" BaseTypeListCollapsed="true">
-    <Position X="5" Y="4.5" Width="1.5" />
+    <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgI=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Mechanism.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.794" Collapsed="true" />
   </Class>
   <Class Name="VP_Refactoring1.Moto" BaseTypeListCollapsed="true">
-    <Position X="6.75" Y="4.5" Width="1.5" />
+    <Position X="21.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAECAIAAAAAAEAAAAAAAEAAAAAAAARACAAQAAAAI=</HashCode>
       <FileName>Moto.cs</FileName>
@@ -68,28 +68,28 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="VP_Refactoring1.MotoConfig">
-    <Position X="1.5" Y="8.5" Width="1.5" />
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAABAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
       <FileName>MotoConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VP_Refactoring1.Startup">
-    <Position X="5" Y="8.5" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VP_Refactoring1.ResultExec">
-    <Position X="3.25" Y="8.5" Width="1.5" />
+    <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ResultExec.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VP_Refactoring1.Truck" BaseTypeListCollapsed="true">
-    <Position X="6.75" Y="8.5" Width="1.5" />
+    <Position X="23.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAECAIEAAAAAEAAAAAAAEAAEAAAAARAAAAQAAAAA=</HashCode>
       <FileName>Truck.cs</FileName>
@@ -97,14 +97,14 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="VP_Refactoring1.TruckConfig">
-    <Position X="1.5" Y="12.5" Width="1.5" />
+    <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TruckConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VP_Refactoring1.VehicleSystem" BaseTypeListCollapsed="true">
-    <Position X="3.25" Y="12.5" Width="1.5" />
+    <Position X="12.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAgAAAAgAACAAQAAEEAAAAMAIAAAAAAAAAAA=</HashCode>
       <FileName>VehicleSystem.cs</FileName>
@@ -112,28 +112,28 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Interface Name="VP_Refactoring1.ICommandManager">
-    <Position X="9" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>ICommandManager.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="VP_Refactoring1.IMechanism">
-    <Position X="10.75" Y="0.5" Width="1.5" />
+    <Position X="2.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>IMechanism.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="VP_Refactoring1.IVehicle">
-    <Position X="12.5" Y="0.5" Width="1.5" />
+    <Position X="4" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAECAIAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAA=</HashCode>
       <FileName>IVehicle.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="VP_Refactoring1.IVehiclePark">
-    <Position X="14.25" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAgAAAAgAACAAQAAEAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>IVehiclePark.cs</FileName>
