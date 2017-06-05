@@ -4,14 +4,14 @@ namespace VP_Refactoring1
 {
 	class Mechanism : IMechanism
 	{
-		private Exec ex;
+		private readonly Exec _exec;
 
-		private Mechanism(Exec ex)
+		private Mechanism(Exec exec)
 		{
-			this.ex = ex;
+			this._exec = exec;
 		}
 
-		public Mechanism() : this(new Exec())
+		public Mechanism() : this(new Exec())   
 		{
 		}
 
@@ -31,8 +31,8 @@ namespace VP_Refactoring1
 				{
 					try
 					{
-						Exec.CommandManager comando = new Exec.CommandManager(commandLine);
-						string commandResult = this.ex.Execute(comando);
+						Exec.CommandManager commandManager = new Exec.CommandManager(commandLine);
+						string commandResult = this._exec.Execute(commandManager);
 						Console.WriteLine(commandResult);
 					}
 					catch (Exception ex)
