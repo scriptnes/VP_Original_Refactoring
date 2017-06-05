@@ -1,10 +1,11 @@
 using System;
 using System.Text;
 using System.Text.RegularExpressions;
+using VP_Refactoring1;
 
 namespace VehiclePark3
 {
-	public class Caminhão : IVehicle
+	public class Truck : IVehicle
 	{
 		private string licenseplate;
 
@@ -41,7 +42,7 @@ namespace VehiclePark3
 			}
 			set
 			{
-				bool flag = value == null && value == "";
+				bool flag = string.IsNullOrEmpty(value);
 				if (flag)
 				{
 					throw new InvalidCastException("The owner is required.");
@@ -108,7 +109,7 @@ namespace VehiclePark3
 			return vehicle.ToString();
 		}
 
-		public Caminhão(string _license_plate, string _person, int hh)
+		public Truck(string licensePlate, string person, int hours) 
 		{
 			this.RegularRate = 4.75m;
 			this.OvertimeRate = 6.2m;

@@ -2,9 +2,9 @@ using System;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace VehiclePark3
+namespace VP_Refactoring1
 {
-	public class Carro : IVehicle
+	public class Car : IVehicle
 	{
 		private string licenseplate;
 
@@ -108,7 +108,7 @@ namespace VehiclePark3
 			return vehicle.ToString();
 		}
 
-		public Carro(string _license_plate, string _person, int hh)
+		public Car(string _license_plate, string _person, int hh)
 		{
 			this.RegularRate = 2m;
 			this.OvertimeRate = 3.5m;

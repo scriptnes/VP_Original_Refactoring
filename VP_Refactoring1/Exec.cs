@@ -1,116 +1,65 @@
-using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Web.Script.Serialization;
-using VehiclePark3;
-using vp_system_himineu;
 
-namespace Comandos
+namespace VP_Refactoring1
 {
-	internal class exec
+    public class Exec
 	{
-		public class comando : IComando
+	    public readonly CarConfig _carConfig;
+	    private readonly MotoConfig _motoConfig;
+	    private readonly TruckConfig _truckConfig;
+	    private readonly ResultExec _resultExec;
+
+	    public Exec()
+	    {
+	        _carConfig = new CarConfig(this);
+	        _motoConfig = new MotoConfig(this);
+	        _truckConfig = new TruckConfig(this);
+	        _resultExec = new ResultExec(this);
+	    }
+
+	    public class CommandManager : ICommandManager   
 		{
-			public string nome
+			public string Name
 			{
 				get;
 				set;
 			}
 
-			public IDictionary<string, string> parâmetros
+			public IDictionary<string, string> ParametersDictionary
 			{
 				get;
 				set;
 			}
 
-			public comando(string str)
+			public CommandManager(string str)
 			{
-				this.nome = str.Substring(0, str.IndexOf(' '));
-				this.parâmetros = new JavaScriptSerializer().Deserialize<Dictionary<string, string>>(str.Substring(str.IndexOf(' ') + 1));
+				this.Name = str.Substring(0, str.IndexOf(' '));
+				this.ParametersDictionary = new JavaScriptSerializer().Deserialize<Dictionary<string, string>>(str.Substring(str.IndexOf(' ') + 1));
 			}
 		}
 
-		private v VehiclePark
+	    public VehicleSystem VehiclePark
 		{
 			get;
 			set;
 		}
 
-		public string execução(IComando c)
+	    public MotoConfig MotoConfig
+	    {
+	        get { return _motoConfig; }
+	    }
+
+	    public TruckConfig TruckConfig
+	    {
+	        get { return _truckConfig; }
+	    }
+
+	    public string Execute(ICommandManager commandManager)
 		{
-			bool flag = c.nome != "SetupPark" && this.VehiclePark == null;
-			string result;
-			if (flag)
-			{
-				result = "The vehicle park has not been set up";
-			}
-			else
-			{
-				string nome = c.nome;
-				if (!(nome == "SetupPark"))
-				{
-					if (!(nome == "Рark"))
-					{
-						if (!(nome == "Exit"))
-						{
-							if (!(nome == "Status"))
-							{
-								if (!(nome == "FindVehicle"))
-								{
-									if (!(nome == "VehiclesByOwner"))
-									{
-										throw new IndexOutOfRangeException("Invalid command.");
-									}
-									result = this.VehiclePark.FindVehiclesByOwner(c.parâmetros["owner"]);
-								}
-								else
-								{
-									result = this.VehiclePark.FindVehicle(c.parâmetros["licensePlate"]);
-								}
-							}
-							else
-							{
-								result = this.VehiclePark.GetStatus();
-							}
-						}
-						else
-						{
-							result = this.VehiclePark.ExitVehicle(c.parâmetros["licensePlate"], DateTime.Parse(c.parâmetros["time"], null, DateTimeStyles.RoundtripKind), decimal.Parse(c.parâmetros["money"]));
-						}
-					}
-					else
-					{
-						string a = c.parâmetros["type"];
-						if (!(a == "car"))
-						{
-							if (!(a == "motorbike"))
-							{
-								if (!(a == "truck"))
-								{
-									result = "";
-								}
-								else
-								{
-									result = this.VehiclePark.InsertTruck(new Caminhão(c.parâmetros["licensePlate"], c.parâmetros["owner"], int.Parse(c.parâmetros["hours"])), int.Parse(c.parâmetros["sector"]), int.Parse(c.parâmetros["place"]), DateTime.Parse(c.parâmetros["time"], null, DateTimeStyles.RoundtripKind));
-								}
-							}
-							else
-							{
-								result = this.VehiclePark.InsertMotorbike(new Moto(c.parâmetros["licensePlate"], c.parâmetros["owner"], int.Parse(c.parâmetros["hours"])), int.Parse(c.parâmetros["sector"]), int.Parse(c.parâmetros["place"]), DateTime.Parse(c.parâmetros["time"], null, DateTimeStyles.RoundtripKind));
-							}
-						}
-						else
-						{
-							result = this.VehiclePark.InsertCar(new Carro(c.parâmetros["licensePlate"], c.parâmetros["owner"], int.Parse(c.parâmetros["hours"])), int.Parse(c.parâmetros["sector"]), int.Parse(c.parâmetros["place"]), DateTime.Parse(c.parâmetros["time"], null, DateTimeStyles.RoundtripKind));
-						}
-					}
-				}
-				else
-				{
-					result = "Vehicle park created";
-				}
-			}
-			return result;
+			bool flag = commandManager.Name != "SetupPark" && this.VehiclePark == null; 
+
+			return _resultExec.Result(commandManager, flag);
 		}
 	}
 }

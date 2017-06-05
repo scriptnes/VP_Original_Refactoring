@@ -1,6 +1,7 @@
-using System;
-
-internal interface IMecanismo
+namespace VP_Refactoring1
 {
-	void Runrunrunrunrun();
+    public interface IMecanismo 
+    {
+        void Run();
+    }
 }

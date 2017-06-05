@@ -1,29 +1,30 @@
-using System;
-
-public interface IVehicle
+namespace VP_Refactoring1
 {
-	string LicensePlate
-	{
-		get;
-	}
+    public interface IVehicle   
+    {
+        string LicensePlate
+        {
+            get;
+        }
 
-	string Owner
-	{
-		get;
-	}
+        string Owner
+        {
+            get;
+        }
 
-	decimal RegularRate
-	{
-		get;
-	}
+        decimal RegularRate
+        {
+            get;
+        }
 
-	decimal OvertimeRate
-	{
-		get;
-	}
+        decimal OvertimeRate
+        {
+            get;
+        }
 
-	int ReservedHours
-	{
-		get;
-	}
+        int ReservedHours
+        {
+            get;
+        }
+    }
 }

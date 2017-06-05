@@ -2,54 +2,54 @@ using System;
 using System.Collections.Generic;
 using Wintellect.PowerCollections;
 
-namespace Himineu_system
+namespace VP_Refactoring1   
 {
-	internal class DATA
+    public class DataStructure  
 	{
-		public Dictionary<IVehicle, string> carros_inpark
+		public Dictionary<IVehicle, string> CarDictionaryInPark 
 		{
 			get;
 			set;
 		}
 
-		public Dictionary<string, IVehicle> park
+		public Dictionary<string, IVehicle> ParkDictionary  
 		{
 			get;
 			set;
 		}
 
-		public Dictionary<string, IVehicle> números
+		public Dictionary<string, IVehicle> LicensePlateDictionary  
 		{
 			get;
 			set;
 		}
 
-		public Dictionary<IVehicle, DateTime> d
+		public Dictionary<IVehicle, DateTime> DateDictionary
 		{
 			get;
 			set;
 		}
 
-		public MultiDictionary<string, IVehicle> ow
+		public MultiDictionary<string, IVehicle> OwnerMultiDictionary   
 		{
 			get;
 			set;
 		}
 
-		public int[] count
+		public int[] CountNumberOfSectors   
 		{
 			get;
 			set;
 		}
 
-		public DATA(int numberOfSectors)
+		public DataStructure(int numberOfSectors)
 		{
-			this.carros_inpark = new Dictionary<IVehicle, string>();
-			this.park = new Dictionary<string, IVehicle>();
-			this.números = new Dictionary<string, IVehicle>();
-			this.d = new Dictionary<IVehicle, DateTime>();
-			this.ow = new MultiDictionary<string, IVehicle>(false);
-			this.count = new int[numberOfSectors];
+			this.CarDictionaryInPark = new Dictionary<IVehicle, string>();
+			this.ParkDictionary = new Dictionary<string, IVehicle>();
+			this.LicensePlateDictionary = new Dictionary<string, IVehicle>();
+			this.DateDictionary = new Dictionary<IVehicle, DateTime>();
+			this.OwnerMultiDictionary = new MultiDictionary<string, IVehicle>(false);
+			this.CountNumberOfSectors = new int[numberOfSectors];
 		}
 	}
 }

@@ -1,22 +1,21 @@
-using Comandos;
 using System;
 
-namespace VehicleParkSystem2
+namespace VP_Refactoring1
 {
-	internal class Mecanismo : IMecanismo
+	class Mecanismo : IMecanismo
 	{
-		private exec ex;
+		private Exec ex;
 
-		private Mecanismo(exec ex)
+		private Mecanismo(Exec ex)
 		{
 			this.ex = ex;
 		}
 
-		public Mecanismo() : this(new exec())
+		public Mecanismo() : this(new Exec())
 		{
 		}
 
-		public void Runrunrunrunrun()
+		public void Run()
 		{
 			while (true)
 			{
@@ -32,8 +31,8 @@ namespace VehicleParkSystem2
 				{
 					try
 					{
-						exec.comando comando = new exec.comando(commandLine);
-						string commandResult = this.ex.execução(comando);
+						Exec.CommandManager comando = new Exec.CommandManager(commandLine);
+						string commandResult = this.ex.Execute(comando);
 						Console.WriteLine(commandResult);
 					}
 					catch (Exception ex)

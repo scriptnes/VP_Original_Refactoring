@@ -1,15 +1,17 @@
-using System;
 using System.Collections.Generic;
 
-public interface IComando
+namespace VP_Refactoring1
 {
-	string nome
-	{
-		get;
-	}
+    public interface ICommandManager    
+    {
+        string Name
+        {
+            get;
+        }
 
-	IDictionary<string, string> parâmetros
-	{
-		get;
-	}
+        IDictionary<string, string> ParametersDictionary    
+        {
+            get;
+        }
+    }
 }

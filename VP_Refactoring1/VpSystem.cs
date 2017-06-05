@@ -1,161 +1,43 @@
-using Himineu_system;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using VehiclePark3;
 
-namespace vp_system_himineu
+namespace VP_Refactoring1
 {
-	internal class v : IVehiclePark
+    public class VehicleSystem : IVehiclePark 
 	{
-		public layout layout;
+		public Layout layout;
 
-		public DATA DATA;
+		public DataStructure DATA;
+        private readonly InsertAllType _insertAllType;
 
-		public v(int numberOfSectors, int placesPerSector)
+        public VehicleSystem(int numberOfSectors, int placesPerSector)
 		{
-			this.layout = new layout(numberOfSectors, placesPerSector);
-			this.DATA = new DATA(numberOfSectors);
+			this.layout = new Layout(numberOfSectors, placesPerSector);
+			this.DATA = new DataStructure(numberOfSectors);
+            _insertAllType = new InsertAllType(this);
 		}
 
-		public string InsertCar(Carro carro, int s, int p, DateTime t)
+		public string InsertCar(Car carro, int s, int p, DateTime t)
 		{
-			bool flag = s > this.layout.sectors;
-			string result;
-			if (flag)
-			{
-				result = string.Format("There is no sector {0} in the park", s);
-			}
-			else
-			{
-				bool flag2 = p > this.layout.places_sec;
-				if (flag2)
-				{
-					result = string.Format("There is no place {0} in sector {1}", p, s);
-				}
-				else
-				{
-					bool flag3 = this.DATA.park.ContainsKey(string.Format("({0},{1})", s, p));
-					if (flag3)
-					{
-						result = string.Format("The place ({0},{1}) is occupied", s, p);
-					}
-					else
-					{
-						bool flag4 = this.DATA.números.ContainsKey(carro.LicensePlate);
-						if (flag4)
-						{
-							result = string.Format("There is already a vehicle with license plate {0} in the park", carro.LicensePlate);
-						}
-						else
-						{
-							this.DATA.carros_inpark[carro] = string.Format("({0},{1})", s, p);
-							this.DATA.park[string.Format("({0},{1})", s, p)] = carro;
-							this.DATA.números[carro.LicensePlate] = carro;
-							this.DATA.d[carro] = t;
-							this.DATA.ow[carro.Owner].Add(carro);
-							this.DATA.count[s - 1]--;
-							result = string.Format("{0} parked successfully at place ({1},{2})", carro.GetType().Name, s, p);
-						}
-					}
-				}
-			}
-			return result;
+		    return _insertAllType.InsertCar(carro, s, p, t);
 		}
 
-		public string InsertMotorbike(Moto moto, int s, int p, DateTime t)
-		{
-			bool flag = s > this.layout.sectors;
-			string result;
-			if (flag)
-			{
-				result = string.Format("There is no sector {0} in the park", s);
-			}
-			else
-			{
-				bool flag2 = p > this.layout.places_sec;
-				if (flag2)
-				{
-					result = string.Format("There is no place {0} in sector {1}", p, s);
-				}
-				else
-				{
-					bool flag3 = this.DATA.park.ContainsKey(string.Format("({0},{1})", s, p));
-					if (flag3)
-					{
-						result = string.Format("The place ({0},{1}) is occupied", s, p);
-					}
-					else
-					{
-						bool flag4 = this.DATA.números.ContainsKey(moto.LicensePlate);
-						if (flag4)
-						{
-							result = string.Format("There is already a vehicle with license plate {0} in the park", moto.LicensePlate);
-						}
-						else
-						{
-							this.DATA.carros_inpark[moto] = string.Format("({0},{1})", s, p);
-							this.DATA.park[string.Format("({0},{1})", s, p)] = moto;
-							this.DATA.números[moto.LicensePlate] = moto;
-							this.DATA.d[moto] = t;
-							this.DATA.ow[moto.Owner].Add(moto);
-							this.DATA.count[s - 1]++;
-							result = string.Format("{0} parked successfully at place ({1},{2})", moto.GetType().Name, s, p);
-						}
-					}
-				}
-			}
-			return result;
-		}
+        public string InsertMotorbike(Moto moto, int s, int p, DateTime t)
+        {
+            return _insertAllType.InsertMotorbike(moto, s, p, t);
+        }
 
-		public string InsertTruck(Caminhão caminhão, int s, int p, DateTime t)
-		{
-			bool flag = s > this.layout.sectors;
-			string result;
-			if (flag)
-			{
-				result = string.Format("There is no sector {0} in the park", s);
-			}
-			else
-			{
-				bool flag2 = p > this.layout.places_sec;
-				if (flag2)
-				{
-					result = string.Format("There is no place {0} in sector {1}", p, s);
-				}
-				else
-				{
-					bool flag3 = this.DATA.park.ContainsKey(string.Format("({0},{1})", s, p));
-					if (flag3)
-					{
-						result = string.Format("The place ({0},{1}) is occupied", s, p);
-					}
-					else
-					{
-						bool flag4 = this.DATA.números.ContainsKey(caminhão.LicensePlate);
-						if (flag4)
-						{
-							result = string.Format("There is already a vehicle with license plate {0} in the park", caminhão.LicensePlate);
-						}
-						else
-						{
-							this.DATA.carros_inpark[caminhão] = string.Format("({0},{1})", s, p);
-							this.DATA.park[string.Format("({0},{1})", s, p)] = caminhão;
-							this.DATA.números[caminhão.LicensePlate] = caminhão;
-							this.DATA.d[caminhão] = t;
-							this.DATA.ow[caminhão.Owner].Add(caminhão);
-							result = string.Format("{0} parked successfully at place ({1},{2})", caminhão.GetType().Name, s, p);
-						}
-					}
-				}
-			}
-			return result;
-		}
+        public string InsertTruck(Truck caminhão, int s, int p, DateTime t)
+        {
+            return _insertAllType.InsertTruck(caminhão, s, p, t);
+        }
 
-		public string ExitVehicle(string l_pl, DateTime end, decimal money)
+        public string ExitVehicle(string l_pl, DateTime end, decimal money)
 		{
-			IVehicle vehicle = this.DATA.números.ContainsKey(l_pl) ? this.DATA.números[l_pl] : null;
+			IVehicle vehicle = this.DATA.LicensePlateDictionary.ContainsKey(l_pl) ? this.DATA.LicensePlateDictionary[l_pl] : null;
 			bool flag = vehicle == null;
 			string result;
 			if (flag)
@@ -164,22 +46,22 @@ namespace vp_system_himineu
 			}
 			else
 			{
-				DateTime start = this.DATA.d[vehicle];
+				DateTime start = this.DATA.DateDictionary[vehicle];
 				int endd = (int)Math.Round((end - start).TotalHours);
 				StringBuilder ticket = new StringBuilder();
-				ticket.AppendLine(new string('*', 20)).AppendFormat("{0}", vehicle.ToString()).AppendLine().AppendFormat("at place {0}", this.DATA.carros_inpark[vehicle]).AppendLine().AppendFormat("Rate: ${0:F2}", vehicle.ReservedHours * vehicle.RegularRate).AppendLine().AppendFormat("Overtime rate: ${0:F2}", (endd > vehicle.ReservedHours) ? ((endd - vehicle.ReservedHours) * vehicle.OvertimeRate) : decimal.Zero).AppendLine().AppendLine(new string('-', 20)).AppendFormat("Total: ${0:F2}", vehicle.ReservedHours * vehicle.RegularRate + ((endd > vehicle.ReservedHours) ? ((endd - vehicle.ReservedHours) * vehicle.OvertimeRate) : decimal.Zero)).AppendLine().AppendFormat("Paid: ${0:F2}", money).AppendLine().AppendFormat("Change: ${0:F2}", money - (vehicle.ReservedHours * vehicle.RegularRate + ((endd > vehicle.ReservedHours) ? ((endd - vehicle.ReservedHours) * vehicle.OvertimeRate) : decimal.Zero))).AppendLine().Append(new string('*', 20));
-				int sector = int.Parse(this.DATA.carros_inpark[vehicle].Split(new string[]
+				ticket.AppendLine(new string('*', 20)).AppendFormat("{0}", vehicle.ToString()).AppendLine().AppendFormat("at place {0}", this.DATA.CarDictionaryInPark[vehicle]).AppendLine().AppendFormat("Rate: ${0:F2}", vehicle.ReservedHours * vehicle.RegularRate).AppendLine().AppendFormat("Overtime rate: ${0:F2}", (endd > vehicle.ReservedHours) ? ((endd - vehicle.ReservedHours) * vehicle.OvertimeRate) : decimal.Zero).AppendLine().AppendLine(new string('-', 20)).AppendFormat("Total: ${0:F2}", vehicle.ReservedHours * vehicle.RegularRate + ((endd > vehicle.ReservedHours) ? ((endd - vehicle.ReservedHours) * vehicle.OvertimeRate) : decimal.Zero)).AppendLine().AppendFormat("Paid: ${0:F2}", money).AppendLine().AppendFormat("Change: ${0:F2}", money - (vehicle.ReservedHours * vehicle.RegularRate + ((endd > vehicle.ReservedHours) ? ((endd - vehicle.ReservedHours) * vehicle.OvertimeRate) : decimal.Zero))).AppendLine().Append(new string('*', 20));
+				int sector = int.Parse(this.DATA.CarDictionaryInPark[vehicle].Split(new string[]
 				{
 					"(",
 					",",
 					")"
 				}, StringSplitOptions.RemoveEmptyEntries)[0]);
-				this.DATA.park.Remove(this.DATA.carros_inpark[vehicle]);
-				this.DATA.carros_inpark.Remove(vehicle);
-				this.DATA.números.Remove(vehicle.LicensePlate);
-				this.DATA.d.Remove(vehicle);
-				this.DATA.ow.Remove(vehicle.Owner, vehicle);
-				this.DATA.count[sector - 1]--;
+				this.DATA.ParkDictionary.Remove(this.DATA.CarDictionaryInPark[vehicle]);
+				this.DATA.CarDictionaryInPark.Remove(vehicle);
+				this.DATA.LicensePlateDictionary.Remove(vehicle.LicensePlate);
+				this.DATA.DateDictionary.Remove(vehicle);
+				this.DATA.OwnerMultiDictionary.Remove(vehicle.Owner, vehicle);
+				this.DATA.CountNumberOfSectors[sector - 1]--;
 				result = ticket.ToString();
 			}
 			return result;
@@ -187,19 +69,19 @@ namespace vp_system_himineu
 
 		public string GetStatus()
 		{
-			IEnumerable<string> places = this.DATA.count.Select((int sssss, int iiiii) => string.Format("Sector {0}: {1} / {2} ({2}% full)", new object[]
+			IEnumerable<string> places = this.DATA.CountNumberOfSectors.Select((int sssss, int iiiii) => string.Format("Sector {0}: {1} / {2} ({2}% full)", new object[]
 			{
 				iiiii + 1,
 				sssss,
-				this.layout.places_sec,
-				Math.Round((double)sssss / (double)this.layout.places_sec * 100.0)
+				this.layout.PlacesSec,
+				Math.Round((double)sssss / (double)this.layout.PlacesSec * 100.0)
 			}));
 			return string.Join(Environment.NewLine, places);
 		}
 
 		public string FindVehicle(string l_pl)
 		{
-			IVehicle vehicle = this.DATA.números.ContainsKey(l_pl) ? this.DATA.números[l_pl] : null;
+			IVehicle vehicle = this.DATA.LicensePlateDictionary.ContainsKey(l_pl) ? this.DATA.LicensePlateDictionary[l_pl] : null;
 			bool flag = vehicle == null;
 			string result;
 			if (flag)
@@ -218,7 +100,7 @@ namespace vp_system_himineu
 
 		public string FindVehiclesByOwner(string owner)
 		{
-			bool flag = !(from v in this.DATA.park.Values
+			bool flag = !(from v in this.DATA.ParkDictionary.Values
 			where v.Owner == owner
 			select v).Any<IVehicle>();
 			string result;
@@ -228,7 +110,7 @@ namespace vp_system_himineu
 			}
 			else
 			{
-				List<IVehicle> found = this.DATA.park.Values.ToList<IVehicle>();
+				List<IVehicle> found = this.DATA.ParkDictionary.Values.ToList<IVehicle>();
 				List<IVehicle> res = found;
                 //Func < IVehicle, bool> <>9__1;
 				foreach (IVehicle f in found)
@@ -252,7 +134,7 @@ namespace vp_system_himineu
 		private string Input(IEnumerable<IVehicle> carros)
 		{
 			return string.Join(Environment.NewLine, from vehicle in carros
-			select string.Format("{0}{1}Parked at {2}", vehicle.ToString(), Environment.NewLine, this.DATA.carros_inpark[vehicle]));
+			select string.Format("{0}{1}Parked at {2}", vehicle.ToString(), Environment.NewLine, this.DATA.CarDictionaryInPark[vehicle]));
 		}
 	}
 }
